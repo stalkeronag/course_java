@@ -74,10 +74,12 @@ public class Main {
         for (int i = 0; i < sampleSize; i++) {
             int lengthNumber = 0;
             int temp = indexArray[i];
+
             do {
                 lengthNumber += 1;
                 temp = temp / 10;
             } while (temp > 0);
+
             System.out.print(indexArray[i]);
 
             for (int k = 0; k < (sizeBlock - lengthNumber); k++) {
