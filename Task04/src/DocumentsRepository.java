@@ -3,13 +3,13 @@ import java.util.Random;
 
 public class DocumentsRepository {
 
-    private int[] keys;
+    private final int[] keys;
 
     private int sizeKeys;
 
-    private int capacity;
+    private final int capacity;
 
-    private Document[] documents;
+    private final Document[] documents;
 
     public DocumentsRepository() {
         capacity = 10000;
@@ -19,7 +19,6 @@ public class DocumentsRepository {
     }
 
     private void RebuildKeysForDelete(int index) {
-        int keyDeleted = keys[index];
         sizeKeys = sizeKeys - 1;
 
         for (int i = index; i < sizeKeys; i++) {
@@ -36,8 +35,7 @@ public class DocumentsRepository {
 
     private int GenerateId() {
         Random random = new Random();
-        int id = random.nextInt(capacity);
-        return id;
+        return random.nextInt(capacity);
     }
 
     public int SaveDocument(Document doc) {

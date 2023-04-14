@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public class DocumentsService {
 
-    private DocumentsRepository repository;
+    private final DocumentsRepository repository;
 
-    private Scanner scanner;
+    private final Scanner scanner;
 
     public DocumentsService(DocumentsRepository repository) {
         scanner = new Scanner(System.in);
@@ -15,31 +15,19 @@ public class DocumentsService {
 
 
     public void Start() {
-        int command = 0;
+        int command;
         boolean isActive = true;
         while (isActive) {
             ShowHelp();
             command = scanner.nextInt();
             scanner.nextLine();
             switch (command) {
-                case (1):
-                    ShowNamesByDate();
-                    break;
-                case (2):
-                    AddDocument();
-                    break;
-                case (3):
-                    DeleteById();
-                    break;
-                case (4):
-                    ApproveById();
-                    break;
-                case (5):
-                    ShowApprovedDocs();
-                    break;
-                case (6):
-                    isActive = false;
-                    break;
+                case (1) -> ShowNamesByDate();
+                case (2) -> AddDocument();
+                case (3) -> DeleteById();
+                case (4) -> ApproveById();
+                case (5) -> ShowApprovedDocs();
+                case (6) -> isActive = false;
             }
         }
     }
@@ -64,7 +52,7 @@ public class DocumentsService {
         doc.SetText(text);
         doc.SetCreateDate(LocalDate.parse(date));
         int id = repository.SaveDocument(doc);
-        System.out.println(String.format("id документа %d", id));
+        System.out.printf("id документа %d%n", id);
 
     }
 
@@ -76,12 +64,12 @@ public class DocumentsService {
         LocalDate date = LocalDate.parse(stringDate);
         String[] names = repository.GetDocumentsNamesByDate(date);
         System.out.println("Имена документов");
-        for (int i = 0; i < names.length; i++) {
-            System.out.println(names[i]);
+        for (String name : names) {
+            System.out.println(name);
         }
     }
 
-    private void DeleteById(){
+    private void DeleteById() {
         System.out.println("введите id");
         int id = scanner.nextInt();
         scanner.nextLine();
@@ -94,12 +82,12 @@ public class DocumentsService {
         String text;
         LocalDate createDate;
         int id;
-        for (int i = 0; i < docs.length; i++) {
-            name = docs[i].GetName();
-            text = docs[i].GetText();
-            id = docs[i].GetId();
-            createDate = docs[i].GetCreateDate();
-            System.out.println(String.format("name: %s text:%s createDate: %s id: %d", name, text, createDate, id));
+        for (Document doc : docs) {
+            name = doc.GetName();
+            text = doc.GetText();
+            id = doc.GetId();
+            createDate = doc.GetCreateDate();
+            System.out.printf("name: %s text:%s createDate: %s id: %d%n", name, text, createDate, id);
         }
     }
 
