@@ -92,7 +92,7 @@ public class DocumentsRepository {
         return temp;
     }
 
-    public Document[] GetDocumentsByStatus(Status status) {
+    public Document[] GetDocumentsByStatus(Document.Status status) {
         int count = 0;
 
         for (int i = 0; i < sizeKeys; i++) {
@@ -117,7 +117,7 @@ public class DocumentsRepository {
 
         for (int i = 0; i < sizeKeys; i++) {
             if (keys[i] == id) {
-                documents[keys[i]].SetStatus(Status.APPROVED);
+                documents[keys[i]].SetStatus(Document.Status.APPROVED);
             }
         }
     }

@@ -47,7 +47,7 @@ public class DocumentsService {
         System.out.println("введите дату документа YYYY-MM-DD");
         String date = scanner.nextLine();
         Document doc = new Document();
-        doc.SetStatus(Status.CREATED);
+        doc.SetStatus(Document.Status.CREATED);
         doc.SetName(name);
         doc.SetText(text);
         doc.SetCreateDate(LocalDate.parse(date));
@@ -77,7 +77,7 @@ public class DocumentsService {
     }
 
     private void ShowApprovedDocs() {
-        Document[] docs = repository.GetDocumentsByStatus(Status.APPROVED);
+        Document[] docs = repository.GetDocumentsByStatus(Document.Status.APPROVED);
         String name;
         String text;
         LocalDate createDate;

@@ -1,11 +1,13 @@
 import java.time.LocalDate;
 
-enum Status {
-    CREATED,
-    APPROVED
-}
 
 public class Document {
+
+    enum Status {
+        CREATED,
+        APPROVED
+    }
+
     private int id;
 
     private Status status;
