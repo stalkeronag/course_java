@@ -11,7 +11,7 @@ public abstract class AbstractDocument implements Document {
         this.createDate = createDate;
     }
 
-    public abstract void PrintDocument();
+    public abstract void printDocument();
 
-    public abstract boolean ValidateDocument();
+    public abstract boolean validateDocument();
 }

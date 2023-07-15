@@ -16,7 +16,7 @@ public class Certificate extends AbstractDocument {
     }
 
     @Override
-    public void PrintDocument() {
+    public void printDocument() {
         System.out.printf("Дата создания документа: %s;\nИмя документа %s;\n", createDate, name);
         System.out.printf("Имя организации куда направлена справка: %s;\n", organizationDestination);
         System.out.printf("Имя подписавщего:%s \n", nameSubscriber);
@@ -24,21 +24,21 @@ public class Certificate extends AbstractDocument {
     }
 
     @Override
-    public String GetNameDocument() {
+    public String getNameDocument() {
         return name;
     }
 
     @Override
-    public LocalDate GetDateDocument() {
+    public LocalDate getDateDocument() {
         return createDate;
     }
 
     @Override
-    public boolean ValidateDocument() {
-        return ValidateDate() && ValidateNameOrganization() && ValidateFullNameSub();
+    public boolean validateDocument() {
+        return validateDate() && validateNameOrganization() && validateFullNameSub();
     }
 
-    private boolean ValidateNameOrganization() {
+    private boolean validateNameOrganization() {
 
         if (organizationDestination == null || organizationDestination.isEmpty())
             return false;
@@ -47,11 +47,11 @@ public class Certificate extends AbstractDocument {
         return organizationDestination.length() > 3 && Character.isUpperCase(firstSymbol);
     }
 
-    private boolean ValidateDate() {
+    private boolean validateDate() {
         return endActionDate.isAfter(createDate);
     }
 
-    private boolean ValidateFullNameSub() {
+    private boolean validateFullNameSub() {
 
         if (nameSubscriber == null || nameSubscriber.isEmpty())
             return false;
@@ -69,19 +69,19 @@ public class Certificate extends AbstractDocument {
         }
 
         for (String s : names) {
-            if (!(CheckFirstSymbol(s) && ChecksContentString(s))) {
+            if (!(checkFirstSymbol(s) && checksContentString(s))) {
                 return false;
             }
         }
         return true;
     }
 
-    private boolean CheckFirstSymbol(String str) {
+    private boolean checkFirstSymbol(String str) {
         char symbol = str.charAt(0);
         return Character.isUpperCase(symbol);
     }
 
-    private boolean ChecksContentString(String str) {
+    private boolean checksContentString(String str) {
         for (int i = 1; i < str.length(); i++) {
             char symbol = str.charAt(i);
 

@@ -1,11 +1,11 @@
 import java.time.LocalDate;
 
 public interface Document {
-    public String GetNameDocument();
+    public String getNameDocument();
 
-    public LocalDate GetDateDocument();
+    public LocalDate getDateDocument();
 
-    public boolean ValidateDocument();
+    public boolean validateDocument();
 
-    public void PrintDocument();
+    public void printDocument();
 }

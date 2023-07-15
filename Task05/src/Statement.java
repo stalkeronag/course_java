@@ -11,22 +11,22 @@ public class Statement extends AbstractDocument {
 
 
     @Override
-    public void PrintDocument() {
+    public void printDocument() {
         System.out.printf("Имя выписки: %s;\nИмя организации выдавшая выписку: %s;\nВремя выдачи: %s;\n\n", name, organizationSource, createDate.toString());
     }
 
     @Override
-    public String GetNameDocument() {
+    public String getNameDocument() {
         return name;
     }
 
     @Override
-    public LocalDate GetDateDocument() {
+    public LocalDate getDateDocument() {
         return createDate;
     }
 
     @Override
-    public boolean ValidateDocument() {
+    public boolean validateDocument() {
 
         if (organizationSource == null || organizationSource.isEmpty())
             return false;

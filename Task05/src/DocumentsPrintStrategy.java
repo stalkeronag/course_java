@@ -1,8 +1,8 @@
 public class DocumentsPrintStrategy implements DocumentsProcessStrategy {
     @Override
-    public void Process(Document[] documents) {
+    public void process(Document[] documents) {
         for (Document document : documents) {
-            document.PrintDocument();
+            document.printDocument();
         }
     }
 }

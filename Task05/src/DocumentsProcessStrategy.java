@@ -1,5 +1,5 @@
 
 
 public interface DocumentsProcessStrategy {
-    public void Process(Document[] documents);
+    public void process(Document[] documents);
 }

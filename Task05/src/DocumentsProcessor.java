@@ -9,14 +9,14 @@ public class DocumentsProcessor {
         docs = new ArrayList<>();
     }
 
-    public void AddInQueue(Document[] documents) {
+    public void addInQueue(Document[] documents) {
         docs.addAll(Arrays.asList(documents));
     }
 
-    public void Process(DocumentsProcessStrategy strategy) {
+    public void process(DocumentsProcessStrategy strategy) {
         Document[] documents = new Document[docs.size()];
         documents = docs.toArray(documents);
-        strategy.Process(documents);
+        strategy.process(documents);
         docs.clear();
     }
 

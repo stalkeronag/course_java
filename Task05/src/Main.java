@@ -18,11 +18,11 @@ public class Main {
                 thirdDoc
         };
 
-        processor.AddInQueue(documents);
-        processor.Process(new DocumentsPrintStrategy());
+        processor.addInQueue(documents);
+        processor.process(new DocumentsPrintStrategy());
 
-        processor.AddInQueue(documents);
-        processor.Process(new DocumentsValidationStrategy());
+        processor.addInQueue(documents);
+        processor.process(new DocumentsValidationStrategy());
 
         //неверные документы
 
@@ -39,10 +39,10 @@ public class Main {
                 sevenDoc
         };
 
-        processor.AddInQueue(secondExampleDocuments);
-        processor.Process(new DocumentsPrintStrategy());
-        processor.AddInQueue(secondExampleDocuments);
-        processor.Process(new DocumentsValidationStrategy());
+        processor.addInQueue(secondExampleDocuments);
+        processor.process(new DocumentsPrintStrategy());
+        processor.addInQueue(secondExampleDocuments);
+        processor.process(new DocumentsValidationStrategy());
 
     }
 
