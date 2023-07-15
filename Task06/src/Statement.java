@@ -65,7 +65,7 @@ public class Statement extends AbstractDocument {
 
     @Override
     public String toString() {
-        return this.name + " " + this.organizationSource + " " + this.createDate;
+        return "name = " + this.name + " " + "organizationSource:" + this.organizationSource + " " + "createDate:" + this.createDate;
     }
 }
 

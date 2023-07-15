@@ -126,8 +126,8 @@ public class Certificate extends AbstractDocument {
 
     @Override
     public String toString() {
-        return this.name + " " + this.createDate + " " + this.endActionDate +
-                " " + this.nameSubscriber + " " + this.organizationDestination;
+        return "name = " + this.name + " " + "createDate:" + this.createDate + " " + "endActionDate:" + this.endActionDate +
+                " " + "nameSub:" + this.nameSubscriber + " " + "organisationDestination:" + this.organizationDestination;
     }
 
 }
