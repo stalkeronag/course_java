@@ -20,16 +20,16 @@ public class Main {
                 LocalDate.parse("2003-10-08"));
         Document fiveDoc = new Statement("Rare", LocalDate.parse("2002-12-21"),"Stack");
         DocumentsRegistry registry = new DocumentsRegistry(16);
-        registry.PutDocument(firstCertificate, "green text");
-        registry.PutDocument(secondCertificate, "oao the better 2 rarity");
-        System.out.println(registry.GetDescription(firstCertificate));
-        System.out.println(registry.GetDescription(secondCertificate));
-        registry.PutDocument(thirdCertificate, "change firstCertificate description");
-        System.out.println(registry.GetDescription(thirdCertificate));
-        System.out.println(registry.GetDescription(firstCertificate));
-        registry.PutDocument(fourCertificate, "change secondCertificate description");
-        System.out.println(registry.GetDescription(secondCertificate));
-        System.out.println(registry.GetDescription(fourCertificate));
-        System.out.println(registry.GetDescription(fiveDoc));
+        registry.putDocument(firstCertificate, "green text");
+        registry.putDocument(secondCertificate, "oao the better 2 rarity");
+        System.out.println(registry.getDescription(firstCertificate));
+        System.out.println(registry.getDescription(secondCertificate));
+        registry.putDocument(thirdCertificate, "change firstCertificate description");
+        System.out.println(registry.getDescription(thirdCertificate));
+        System.out.println(registry.getDescription(firstCertificate));
+        registry.putDocument(fourCertificate, "change secondCertificate description");
+        System.out.println(registry.getDescription(secondCertificate));
+        System.out.println(registry.getDescription(fourCertificate));
+        System.out.println(registry.getDescription(fiveDoc));
     }
 }

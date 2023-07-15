@@ -22,7 +22,7 @@ public class DocumentsRegistry {
         arrayEntity = new Entity[size][size];
     }
 
-    public void PutDocument(Object document, String description) {
+    public void putDocument(Object document, String description) {
         int hashCode = document.hashCode();
         int numberOfString = hashCode & (size - 1);
 
@@ -45,7 +45,7 @@ public class DocumentsRegistry {
 
     }
 
-    public String GetDescription(Object document) {
+    public String getDescription(Object document) {
         int hashCode = document.hashCode();
         int numberOfString = hashCode & (size - 1);
 
