@@ -18,7 +18,7 @@ public class DocumentsRepository {
         sizeKeys = 0;
     }
 
-    private void RebuildKeysForDelete(int index) {
+    private void rebuildKeysForDelete(int index) {
         sizeKeys = sizeKeys - 1;
 
         for (int i = index; i < sizeKeys; i++) {
@@ -28,42 +28,42 @@ public class DocumentsRepository {
         keys[sizeKeys] = -1;
     }
 
-    private void AddKey(int key) {
+    private void addKey(int key) {
         keys[sizeKeys] = key;
         sizeKeys = sizeKeys + 1;
     }
 
-    private int GenerateId() {
+    private int generateId() {
         Random random = new Random();
         return random.nextInt(capacity);
     }
 
-    public int SaveDocument(Document doc) {
+    public int saveDocument(Document doc) {
 
         if (sizeKeys == documents.length) {
             throw new IndexOutOfBoundsException("нету места для документа");
         }
 
-        int id = GenerateId();
+        int id = generateId();
 
         while (documents[id] != null) {
-            id = GenerateId();
+            id = generateId();
         }
 
-        doc.SetId(id);
-        AddKey(id);
+        doc.setId(id);
+        addKey(id);
         documents[id] = doc;
         return id;
     }
 
-    public void DeleteById(int id) {
+    public void deleteById(int id) {
         documents[id] = null;
         int indexKey;
 
         for (int i = 0; i < sizeKeys; i++) {
             if (keys[i] == id) {
                 indexKey = i;
-                RebuildKeysForDelete(indexKey);
+                rebuildKeysForDelete(indexKey);
                 break;
             }
         }
@@ -71,11 +71,11 @@ public class DocumentsRepository {
 
     }
 
-    public String[] GetDocumentsNamesByDate(LocalDate date) {
+    public String[] getDocumentsNamesByDate(LocalDate date) {
         int count = 0;
 
         for (int i = 0; i < sizeKeys; i++) {
-            if (documents[keys[i]].GetCreateDate().isEqual(date)) {
+            if (documents[keys[i]].getCreateDate().isEqual(date)) {
                 count++;
             }
         }
@@ -83,8 +83,8 @@ public class DocumentsRepository {
         String[] temp = new String[count];
         int currentPos = 0;
         for (int i = 0; i < sizeKeys; i++) {
-            if (documents[keys[i]].GetCreateDate().isEqual(date)) {
-                temp[currentPos] = documents[keys[i]].GetName();
+            if (documents[keys[i]].getCreateDate().isEqual(date)) {
+                temp[currentPos] = documents[keys[i]].getName();
                 currentPos++;
             }
         }
@@ -92,11 +92,11 @@ public class DocumentsRepository {
         return temp;
     }
 
-    public Document[] GetDocumentsByStatus(Document.Status status) {
+    public Document[] getDocumentsByStatus(Document.Status status) {
         int count = 0;
 
         for (int i = 0; i < sizeKeys; i++) {
-            if (documents[keys[i]].GetStatus() == status) {
+            if (documents[keys[i]].getStatus() == status) {
                 count++;
             }
         }
@@ -104,7 +104,7 @@ public class DocumentsRepository {
         Document[] temp = new Document[count];
         int currentPos = 0;
         for (int i = 0; i < sizeKeys; i++) {
-            if (documents[keys[i]].GetStatus() == status) {
+            if (documents[keys[i]].getStatus() == status) {
                 temp[currentPos] = documents[keys[i]];
                 currentPos++;
             }
@@ -113,11 +113,11 @@ public class DocumentsRepository {
         return temp;
     }
 
-    public void UpdateStatusById(int id) {
+    public void updateStatusById(int id) {
 
         for (int i = 0; i < sizeKeys; i++) {
             if (keys[i] == id) {
-                documents[keys[i]].SetStatus(Document.Status.APPROVED);
+                documents[keys[i]].setStatus(Document.Status.APPROVED);
             }
         }
     }

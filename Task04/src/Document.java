@@ -17,45 +17,45 @@ public class Document {
     private String text;
 
     private String name;
-
-    public int GetId() {
+    public int getId() {
         return id;
     }
 
-    public void SetId(int value) {
-        id = value;
-    }
-
-    public Status GetStatus() {
+    public Status getStatus() {
         return status;
     }
 
-    public void SetStatus(Status value) {
-        status = value;
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
-    public LocalDate GetCreateDate() {
+    public LocalDate getCreateDate() {
         return createDate;
     }
 
-    public void SetCreateDate(LocalDate value) {
-        createDate = value;
+    public void setCreateDate(LocalDate createDate) {
+        this.createDate = createDate;
     }
 
-    public String GetText() {
+    public String getText() {
         return text;
     }
 
-    public void SetText(String value) {
-        text = value;
+    public void setText(String text) {
+        this.text = text;
     }
 
-
-    public String GetName() {
+    public String getName() {
         return name;
     }
 
-    public void SetName(String value) {
-        name = value;
+    public void setName(String name) {
+        this.name = name;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+
 }
